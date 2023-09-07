@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { sidebarLinks } from "../data/dashboard-links";
-import ConfirmationModal from "./ConfirmationModal";
 import SidebarLink from "./SideBarLink";
 import Logout from './Logout'
 export default function Sidebar() {
@@ -9,10 +7,7 @@ export default function Sidebar() {
     const [authLoading, setauthLoading] = useState(true);
     const [profileLoading, setprofileLoading] = useState(true);
 
-    const navigate = useNavigate();
     const [active,setActive]=useState(false);
-    // to keep track of confirmation modal
-    const [confirmationModal, setConfirmationModal] = useState(null);
     useEffect(() => {
         if (user) {
             setprofileLoading(false);

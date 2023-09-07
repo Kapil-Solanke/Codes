@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import {FaPhone} from 'react-icons/fa6'
 import {RiAccountCircleFill} from 'react-icons/ri'  

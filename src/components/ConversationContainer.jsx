@@ -8,7 +8,6 @@ import ChatContainer from "./ChatContainer";
 import Conversations from "./Conversations";
 import Welcome from "./Welcome";
 import { AppContext } from "../context/AppContext";
-import { InfoContainer } from "./InfoContainer";
 import { Profile } from "./Profile";
 export default function ConversationContainer() {
   const navigate = useNavigate();
