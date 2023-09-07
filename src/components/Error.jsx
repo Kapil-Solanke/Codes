@@ -7,11 +7,8 @@ export const Error = () => {
             <div className='w-[10%] min-h-screen '>
                 <Sidebar />
             </div>
-            <div className='w-[75%] min-h-screen flex justify-center items-center text-cyan-700 text-2xl bg-white '>
-                This Page is under Maintenance.Please Try Again Later.
-            </div>
-            <div className='w-[15%] min-h-screen '>
-                <Sidebar />
+            <div className='w-[90%] min-h-screen flex justify-center items-center text-cyan-700 text-2xl bg-white '>
+                This Pages are under Maintenance.Please Try Again Later.
             </div>
         </div>
   )

@@ -66,7 +66,7 @@ export default function Login() {
           JSON.stringify(data.user)
         );
         setUser(data.user);
-        
+        console.log(user);
         navigate("/my-profile");
       }
     }

@@ -8,6 +8,8 @@ import ChatContainer from "./ChatContainer";
 import Conversations from "./Conversations";
 import Welcome from "./Welcome";
 import { AppContext } from "../context/AppContext";
+import { InfoContainer } from "./InfoContainer";
+import { Profile } from "./Profile";
 export default function ConversationContainer() {
   const navigate = useNavigate();
   const socket = useRef();
@@ -52,6 +54,7 @@ export default function ConversationContainer() {
   }, [currentUser]);
   const handleChatChange = (chat) => {
     setCurrentChat(chat);
+    console.log("currentchat is",currentChat);
   };
   return (
     <div className="min-w-screen h-screen overflow-hidden  bg-white">
@@ -61,8 +64,14 @@ export default function ConversationContainer() {
           {currentChat === undefined ? (
             <Welcome />
           ) : (
+            <div className="flex w-full">
+              <div className="w-[75%]">
             <ChatContainer currentChat={currentChat} socket={socket} />
-            // <></>
+              </div>
+              <div className="w-[25%]">
+              <Profile user={currentChat}/>
+              </div>
+            </div>
           )}
         </div>
       </div>

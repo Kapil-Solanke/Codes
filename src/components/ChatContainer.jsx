@@ -9,12 +9,23 @@ export default function ChatContainer({ currentChat, socket }) {
   const [messages, setMessages] = useState([]);
   const scrollRef = useRef();
   const [arrivalMessage, setArrivalMessage] = useState(null);
-
+  const options = {
+    weekday: "short",
+    day: "numeric",
+  };
+  
+  const timeStamp = (
+    <>
+      {new Date().toLocaleDateString("en-US", options)}{" "}
+      {new Date().toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" })}
+    </>
+  );
   useEffect(() => {
     const fetchDetails = async () => {
       const data = await JSON.parse(
         localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)
       );
+      // console.log("chatcontainer",data);
       const response = await axios.post(recieveMessageRoute, {
         from: data._id,
         to: currentChat?._id,
@@ -89,9 +100,9 @@ export default function ChatContainer({ currentChat, socket }) {
                 className={`message flex items-center   ${
                   message.fromSelf ? "sended justify-end" : "recieved justify-start"
                 }`}>
-                <div className="content max-w-[40%]   ">
+                <div className="content max-w-[40%] flex flex-col gap-1 ">
                   <p className="bg-[#ffffff] px-2 py-2 rounded-md ">{message.message}</p>
-                  <p>{new Date().toDateString()},{new Date().toLocaleTimeString()}</p>
+                  <p className="justify-end">{timeStamp}</p>
                 </div>
               </div>
             </div>
