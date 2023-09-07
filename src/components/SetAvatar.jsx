@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
 import axios from "axios";
 import { Buffer } from "buffer";
 import loader from "../assets/loader.gif";
@@ -67,25 +66,26 @@ export default function SetAvatar() {
   return (
     <>
       {isLoading ? (
-        <Container>
-          <img src={loader} alt="loader" className="loader" />
-        </Container>
+        <div className="flex w-screen h-screen justify-center items-center">
+          <img src={loader} alt="loader" className="" />
+        </div>
       ) : (
-        <Container>
+        <div className="flex flex-col gap-3 bg-[#131324] w-screen h-screen justify-center items-center ">
           <div className="title-container">
-            <h1>Pick an Avatar as your profile picture</h1>
+            <h1 className="text-white">Pick an Avatar as your profile picture</h1>
           </div>
-          <div className="avatars">
+          <div className="flex gap-8">
             {avatars.map((avatar, index) => {
               return (
                 <div
-                  className={`avatar ${
-                    selectedAvatar === index ? "selected" : ""
+                  className={`border-8 border-transparent rounded-[5rem] p-[0.4rem] flex justify-center items-center transition-all  ${
+                    selectedAvatar === index ? "border[0.4rem] border-[#4e0eff]" : ""
                   }`}
                 >
                   <img
                     src={`data:image/svg+xml;base64,${avatar}`}
                     alt="avatar"
+                    className="h-[6rem] transition-all"
                     key={avatar}
                     onClick={() => setSelectedAvatar(index)}
                   />
@@ -93,68 +93,13 @@ export default function SetAvatar() {
               );
             })}
           </div>
-          <button onClick={setProfilePicture} className="submit-btn">
+          <button onClick={setProfilePicture} className="bg-[#4e0eff] text-white px-4 py-4 cursor-pointer rounded-md uppercase hover:bg-[#4e0eff]">
             Set as Profile Picture
           </button>
           <ToastContainer />
-        </Container>
+        </div>
       )}
     </>
   );
 }
 
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 3rem;
-  background-color: #131324;
-  height: 100vh;
-  width: 100vw;
-
-  .loader {
-    max-inline-size: 100%;
-  }
-
-  .title-container {
-    h1 {
-      color: white;
-    }
-  }
-  .avatars {
-    display: flex;
-    gap: 2rem;
-
-    .avatar {
-      border: 0.4rem solid transparent;
-      padding: 0.4rem;
-      border-radius: 5rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: 0.5s ease-in-out;
-      img {
-        height: 6rem;
-        transition: 0.5s ease-in-out;
-      }
-    }
-    .selected {
-      border: 0.4rem solid #4e0eff;
-    }
-  }
-  .submit-btn {
-    background-color: #4e0eff;
-    color: white;
-    padding: 1rem 2rem;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 0.4rem;
-    font-size: 1rem;
-    text-transform: uppercase;
-    &:hover {
-      background-color: #4e0eff;
-    }
-  }
-`;

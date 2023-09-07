@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import {FaPhone} from 'react-icons/fa6'
 import {RiAccountCircleFill} from 'react-icons/ri'  
 export const Profile = ({user}) => {
@@ -56,33 +55,3 @@ export const Profile = ({user}) => {
     );
 };
 
-const Container=styled.div`
-
-  .details {
-    margin: 20px 10px;
-    padding: 15px;
-    border-radius: 5px;
-    border: 1px solid #bbc0c4;
-    background: #fff;
-    display: flex;
-    flex-direction: column;
-    font-size: 13px;
-  
-    .row {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      margin-top: 5px;
-  
-      .heading {
-        color: rgb(177, 177, 177);
-      }
-  
-      .link {
-        color: #3f50b5;
-        text-decoration: none;
-      }
-    }
-  }
-  
-`;
