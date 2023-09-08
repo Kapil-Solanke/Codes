@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SetAvatar from "./components/SetAvatar";
 import { Dashboard } from "./pages/Dashboard";
 import Login from "./pages/Login";
-import { FBLogin } from "./pages/FBLogin";
 import Register from "./pages/Register";
 import { Error } from "./components/Error";
 import Integrate from "./components/Integrate";
