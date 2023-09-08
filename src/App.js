@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import { FBLogin } from "./pages/FBLogin";
 import Register from "./pages/Register";
 import { Error } from "./components/Error";
+import Integrate from "./components/Integrate";
 export default function App() {
   return (
     <BrowserRouter>
@@ -14,7 +15,7 @@ export default function App() {
         <Route path="/" element={<Login />} />
         <Route path="/error" element={<Error />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/fb-login" element={<FBLogin />} />
+        <Route path="/fb-login" element={<Integrate />} />
         <Route path="/setAvatar" element={<SetAvatar />} />
         <Route path="/my-profile" element={<Dashboard />} />
       </Routes>
